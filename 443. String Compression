@@ -1,0 +1,26 @@
+class Solution {
+    public int compress(char[] chars) {
+        int n=chars.length;
+        int l=0,r=0;
+        while(l<n){
+            int count=0;
+            char ch= chars[l];
+            while((l< n) && (ch==chars[l])){
+                count++;
+                l++;
+
+            }
+             chars[r]=ch;
+             r++;
+             if(count>1){
+                String charcnt=String.valueOf(count);
+                for(char digit : charcnt.toCharArray()){
+                    chars[r]=digit;
+                    r++;
+                }
+             }
+        }
+        
+        return r;
+    }
+}
